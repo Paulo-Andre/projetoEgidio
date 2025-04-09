@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>MATRÍCULA</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <form id="formDeMatricula" action="cadastroAlunoDb.php" method="get">
+      <h1>Formulário de Matrícula</h1>
+      <div id="dadosFormAluno">
+        <h3>Dados do Aluno</h3>
+        <label> Nome Completo:</label>
+        <input
+          type="text"
+          id="nomeFormAluno"
+          name="nomeFormAluno"        
+        />
+        <label> Data de Nasciemnto:</label>
+        <input
+          type="date"
+          id="dataNascimentoFormAluno"
+          name="dataNascimentoFormAluno"
+        />
+        <label> Genêro:</label>
+        <select id="generoFormAluno" name="generoFormAluno">
+          <option value="Masculino">Masculino</option>
+          <option value="Feminino">Feminino</option>
+          <option value="outro" selected>Outro</option>
+        </select>
+
+        <label> CPF:</label>
+        <input type="number" id="CPFFormAluno" name="CPFFormAluno" />
+        <label> Possui RG?:</label>
+        <select id="possuiRG" name="possuiRG" onchange="verificarRG(this)">
+          <option value="Sim">Sim</option>
+          <option value="Nao" selected>Não</option>
+        </select>
+
+        <label class="RG"> RG: </label>
+        <input class="RG" type="number" id="RGFormAluno" name="RGFormAluno" />
+        <label class="RG"> Orgão emissor/UF do RG: </label>
+        <input
+          class="RG"
+          type="text"
+          id="emissorRGFormAluno"
+          name="emissorRGFormAluno"
+        />
+        <label class="RG"> Data de expedição do RG: </label>
+        <input
+          class="RG"
+          type="date"
+          id="expedicaoRGFormAluno"
+          name="expedicaoRGFormAluno"
+        />
+        <script>
+          function verificarRG(selectElement) {
+            document.querySelectorAll(".RG").forEach(function (campo) {
+              if (selectElement.value === "Sim") {
+                campo.style.display = "block";
+              } else {
+                campo.style.display = "none";
+              }
+            });
+          }
+        </script>
+
+        <label> Nacionalidade:</label>
+        <select
+          id="nacionalidade"
+          name="nacionalidade"
+          onchange="verificarNacionalidade(this)"
+        >
+          <option value="Brasileira" selected>Brasileiro</option>
+          <option value="Outro">Outro</option>
+        </select>
+        <script>
+          function verificarNacionalidade(selectElement) {
+            document
+              .querySelectorAll(".nacionalidade")
+              .forEach(function (campo) {
+                if (selectElement.value === "Outro") {
+                  campo.style.display = "block";
+                } else {
+                  campo.style.display = "none";
+                }
+              });
+          }
+        </script>
+        <label class="nacionalidade">Qual pais de origem?:</label>
+        <input
+          class="nacionalidade"
+          type="text"
+          id="nacionalidadeFormAluno"
+          name="nacionalidadeFormAluno"
+        />
+        <label> Estado de nascimento(UF):</label>
+        <select id="UF" name="UF" onchange="verificarUF(this)">
+          <option value="Minas Gerais" selected>Minas Gerais</option>
+          <option value="Outro">Outro</option>
+        </select>
+        <script>
+          function verificarUF(selectElement) {
+            document.querySelectorAll(".UF").forEach(function (campo) {
+              if (selectElement.value === "Outro") {
+                campo.style.display = "block";
+              } else {
+                campo.style.display = "none";
+              }
+            });
+          }
+        </script>
+        <label class="UF">Qual estado de Nascimento?:</label>
+        <input class="UF" type="text" id="UFFormAluno" name="UFFormAluno" />
+
+        <label> naturalidade:</label>
+        <select
+          id="naturalidade"
+          name="naturalidade"
+          onchange="verificarNatularidade(this)"
+        >
+          <option value="Montes Claros" selected>Montes Claros</option>
+          <option value="Outro">Outra</option>
+        </select>
+        <script>
+          function verificarNatularidade(selectElement) {
+            document
+              .querySelectorAll(".naturalidade")
+              .forEach(function (campo) {
+                if (selectElement.value === "Outro") {
+                  campo.style.display = "block";
+                } else {
+                  campo.style.display = "none";
+                }
+              });
+          }
+        </script>
+        <label class="naturalidade">Qual cidade de Nascimento?:</label>
+        <input
+          class="naturalidade"
+          type="text"
+          id="naturalidadeFormAluno"
+          name="naturalidadeFormAluno"
+        />
+        <label> RAÇA/COR :</label>
+        <select id="raca" name="raca">
+          <option value="Branca" selected>Branca</option>
+          <option value="Negra">Negra</option>
+          <option value="Parda">Parda</option>
+          <option value="Amarelo">Amarelo</option>
+          <option value="indigena">Indígena</option>
+        </select>
+
+        <label>Possui algum Laudo?</label>
+        <select
+          id="necessidadesFormAluno"
+          name="necessidadesFormAluno"
+          onchange="verificarNecessidadesEspeciais(this)"
+        >
+          <option value="Sim">Sim</option>
+          <option value="Não" selected>Não</option>
+        </select>
+        <script>
+          function verificarNecessidadesEspeciais(selectElement) {
+            document
+              .querySelectorAll(".nessecidadesEspeciais")
+              .forEach(function (campo) {
+                if (selectElement.value === "Sim") {
+                  campo.style.display = "block";
+                } else {
+                  campo.style.display = "none";
+                }
+              });
+          }
+        </script>
+        <label class="nessecidadesEspeciais">Especifique o laudo:</label>
+        <input
+          class="nessecidadesEspeciais"
+          type="text"
+          id="tipoNecessidadesFormAluno"
+          name="tipoNecessidadesFormAluno"
+        />
+
+        <label>Alergias e Restrições Alimentares</label>
+        <select
+          id="resticoesFormAluno"
+          name="resticoesFormAluno"
+          onchange="verificarAlergia(this)"
+        >
+          <option value="Sim">Sim</option>
+          <option value="Não" selected>Não</option>
+        </select>
+        <script>
+          function verificarAlergia(selectElement) {
+            document.querySelectorAll(".alegias").forEach(function (campo) {
+              if (selectElement.value === "Sim") {
+                campo.style.display = "block";
+              } else {
+                campo.style.display = "none";
+              }
+            });
+          }
+        </script>
+        <label class="alegias">Quais Restrições?</label>
+        <input
+          class="alegias"
+          type="text"
+          id="tiposRestricoesFormAluno"
+          name="tiposRestricoesFormAluno"
+        />
+        <label> Recebe benefício social?:</label>
+        <select
+          id="beneficioSocial"
+          name="beneficioSocial"
+          onchange="verificarBeneficioSocial(this)"
+        >
+          <option value="Não" selected>Não</option>
+          <option value="Sim">Sim</option>
+        </select>
+        <script>
+          function verificarBeneficioSocial(selectElement) {
+            document
+              .querySelectorAll(".beneficioSocial")
+              .forEach(function (campo) {
+                if (selectElement.value === "Sim") {
+                  campo.style.display = "block";
+                } else {
+                  campo.style.display = "none";
+                }
+              });
+          }
+        </script>
+        <label class="beneficioSocial">Qual benefício o aluno recebe?:</label>
+        <input
+          class="beneficioSocial"
+          type="text"
+          id="beneficioSocialFormAluno"
+          name="beneficioSocialFormAluno"
+        />
+        <label>Número do NIS:</label>
+        <input type="text" id="NISFormAluno" name="NISFormAluno" />
+        <label>Tem irmão na escola?</label>
+        <select>
+          <option value="Sim">Sim</option>
+          <option value="Nao" selected>Não</option>
+        </select>
+      </div>
+      <div id="dadosPais">
+        <h2>Dados dos Pais</h2>
+        <h3>Dados do Pai</h3>
+        <input
+          class="dadosPais"
+          type="text"
+          id="nomeFormPai"
+          name="nomeFormPai"
+          placeholder="Nome Completo"
+        />
+        <label for="dataNascimentoFormPai" style="color: gray">
+          Data de nascimento:</label
+        >
+        <input
+          class="dadosPais"
+          type="date"
+          id="dataNascimentoFormPai"
+          name="dataNascimentoFormPai"
+          style="color: gray"
+        />
+        <input
+          class="dadosPais"
+          type="text"
+          id="naturalidadeFormPai"
+          name="naturalidadeFormPai"
+          placeholder="Naturalidade"
+        />
+        <input
+          class="dadosPais"
+          type="number"
+          id="CPFFormPai"
+          name="CPFFormPai"
+          placeholder="CPF"
+        />
+        <input
+          class="dadosPais"
+          type="text"
+          id="RGFormPai"
+          name="RGFormPai"
+          placeholder="RG"
+        />
+
+        <input
+          class="dadosPais"
+          type="number"
+          id="emissorRGFormPai"
+          name="emissorRGFormPai"
+          placeholder="Orgão emissor/UF do RG:"
+        />
+
+        <input
+          class="dadosPais"
+          type="number"
+          id="expedicaoRGFormPai"
+          name="expedicaoRGFormPai"
+          placeholder="Data de expedição do RG"
+        />
+        <input
+          class="dadosPais"
+          type="number"
+          id="telefoneFormPai"
+          name="telefoneFormPai"
+          placeholder="Telefone"
+        />
+        <input
+          class="dadosPais"
+          type="number"
+          id="whatsappFormPai"
+          name="whatsappFormPai"
+          placeholder="whatsapp"
+        />
+        <input
+          class="dadosPais"
+          type="text"
+          id="profissaoFormPai"
+          name="profissaoFormPai"
+          placeholder="Profissão"
+        />
+        <h3>Dados do Mãe</h3>
+        <input
+          class="dadosPais"
+          type="text"
+          id="nomeFormMae"
+          name="nomeFormMae"
+          placeholder="Nome Completo"
+        />
+        <input
+          class="dadosPais"
+          type="text"
+          id="naturalidadeFormMae"
+          name="naturalidadeFormMae"
+          placeholder="Naturalidade"
+        />
+        <label for="dataNascimentoFormMae" style="color: gray">
+          Data de nascimento:</label
+        >
+        <input
+          class="dadosPais"
+          type="date"
+          id="dataNascimentoFormMae"
+          name="dataNascimentoFormMae"
+          style="color: gray"
+        />
+        <input
+          class="dadosPais"
+          type="number"
+          id="CPFFormMae"
+          name="CPFFormMae"
+          placeholder="CPF"
+        />
+        <input
+          class="dadosPais"
+          type="text"
+          id="RGFormMae"
+          name="RGFormMae"
+          placeholder="RG"
+        />
+        <input
+          class="dadosPais"
+          type="number"
+          id="emissorRGFormMae"
+          name="emissorRGFormMae"
+          placeholder="Orgão emissor/UF do RG:"
+        />
+
+        <input
+          class="dadosPais"
+          type="number"
+          id="expedicaoRGFormMae"
+          name="expedicaoRGFormMae"
+          placeholder="Data de expedição do RG"/>
+          <input
+          class="dadosPais"
+          type="number"
+          id="telefoneFormMae"
+          name="telefoneFormMae"
+          placeholder="Telefone"
+        />
+        <input
+          class="dadosPais"
+          type="number"
+          id="whatsappFormMae"
+          name="whatsappFormMae"
+          placeholder="whatsapp"
+        />
+        <input
+          class="dadosPais"
+          type="text"
+          id="profissaoFormMae"
+          name="profissaoFormMae"
+          placeholder="Profissão"
+        />
+      </div>
+      <div id="estadoCivil">
+        <h2>Estado Civil dos Pais</h2>
+        <select
+          id="estadoCivilFormPais"
+          name="estadoCivilFormPais"
+          onchange="estadoCivil(this)"
+        >
+          <option value="casados" selected>Casados</option>
+          <option value="União Estável">União Estável</option>
+          <option value="Separados">Separados</option>
+          <option value="Viúvo(a)">Viúvo(a)</option>
+          <option value="Outro">Outro</option>
+        </select>
+        <script>
+          function estadoCivil(selectElement) {
+            document
+              .querySelectorAll(".situacaoCivil")
+              .forEach(function (campo) {
+                if (selectElement.value === "Outro") {
+                  campo.style.display = "block";
+                } else {
+                  campo.style.display = "none";
+                }
+              });
+          }
+        </script>
+
+        <input
+          class="situacaoCivil"
+          id="situacaoCivilFormPais"
+          name="situacaoCivilFormPais"
+          placeholder="Situacao civil dos pais?"
+        />
+      </div>
+      <div id="dadosResponsavel">
+        <h2>Dados do Responsável Legal</h2>
+        <label>Quem é o Responsável? </label>
+        <select
+          id="responsavelFormAluno"
+          name="responsavelFormAluno"
+          onchange="verificarResponsal(this)"
+          style="color: gray"
+        >
+          <option value="Os Pais" selected>Os Pais</option>
+          <option value="Mãe">Mãe</option>
+          <option value="Pai">Pai</option>
+          <option value="Outro">Outro</option>
+        </select>
+        <script>
+          function verificarResponsal(selectElement) {
+            document
+              .querySelectorAll(".dadosResponsavel")
+              .forEach(function (campo) {
+                if (selectElement.value === "Outro") {
+                  campo.style.display = "block";
+                } else {
+                  campo.style.display = "none";
+                }
+              });
+          }
+        </script>
+
+        <input
+          class="dadosResponsavel"
+          type="text"
+          id="nomeFormResponsavel"
+          name="nomeFormResponsavel"
+          placeholder="Nome Completo"
+        />
+        <input
+          class="dadosResponsavel"
+          type="text"
+          id="parentescoFormResponsavel"
+          name="parentescoFormResponsavel"
+          placeholder="Qual Parentesco?"
+        />
+        <input
+          class="dadosResponsavel"
+          type="number"
+          id="CPFFormResponsavel"
+          name="CPFFormResponsavel"
+          placeholder="CPF"
+        />
+        <input
+          class="dadosResponsavel"
+          type="text"
+          id="RGFormResponsavel"
+          name="RGFormResponsavel"
+          placeholder="RG"
+        />
+        <input
+          class="dadosResponsavel"
+          type="number"
+          id="emissorRGFormResponsavel"
+          name="emissorRGFormResponsavel"
+          placeholder=" Orgão emissor do RG"
+        />
+        <label
+          class="dadosResponsavel"
+          for="expedicaoRGFormResponsavel"
+          style="color: gray; font-size: 15px"
+        >
+          Data de Expedição do RG</label
+        >
+
+        <input
+          class="dadosResponsavel"
+          type="date"
+          id="expedicaoRGFormResponsavel"
+          name="expedicaoRGFormResponsavel"
+          placeholder=" Data de Expedição do RG"
+          style="color: gray"
+        />
+        <input
+          class="dadosResponsavel"
+          type="number"
+          id="telefoneFormResponsavel"
+          name="telefoneFormResponsavel"
+          placeholder="Telefone"
+        />
+        <input
+          class="dadosResponsavel"
+          type="number"
+          id="whatsappFormResponsavel"
+          name="whatsappFormResponsavel"
+          placeholder="whatsapp"
+        />
+        <input
+          class="dadosResponsavel"
+          type="text"
+          id="profissaoFormResponsavel"
+          name="profissaoFormResponsavel"
+          placeholder="Profissão"
+        />
+      </div>
+      <div id="enderecoFomAluno">
+        <h2>Endereço do Aluno</h2>
+
+        <input
+          class="enderecoAluno"
+          type="number"
+          id="CEPFormAluno"
+          name="CEPFormAluno"
+          placeholder="CEP"
+        />
+        <input
+          class="enderecoAluno"
+          type="text"
+          id="ruaFormAluno"
+          name="ruaFormAluno"
+          placeholder="Rua"
+        />
+        <input
+          class="enderecoAluno"
+          type="text"
+          id="bairroFormAluno"
+          name="BairroFormAluno"
+          placeholder="Bairro"
+        />
+        <input
+          class="enderecoAluno"
+          type="text"
+          id="cidadeFormAluno"
+          name="cidadeFormAluno"
+          placeholder="Cidade"
+        />
+        <select id="situacaocasa" name="situacaocasa" style="color: gray">
+          <option value="Casa Própria" selected>Casa Própria</option>
+          <option value="Aluguel">Aluguel</option>
+          <option value="Cedida">Cedida</option>
+        </select>
+      </div>
+      <div id="informacoesFormEscolares">
+        <h2>Informações Escolares</h2>
+        <label> Já estudou em alguma escola? </label>
+        <select
+          id="informacoesFormEscolaresAnterior"
+          name="informacoesFormEscolaresAnterior"
+          style="color: gray"
+          onchange="verificarIformacaoEscolar(this)"
+        >
+          <option value="Sim" selected>Sim</option>
+          <option value="Nao">Não</option>
+        </select>
+        <script>
+          function verificarIformacaoEscolar(selectElement) {
+            document
+              .querySelectorAll(".dadosEscolar")
+              .forEach(function (campo) {
+                if (selectElement.value === "Nao") {
+                  campo.style.display = "none";
+                } else {
+                  campo.style.display = "block";
+                }
+              });
+          }
+        </script>
+        <input
+          class="dadosEscolar"
+          type="text"
+          id="escolarFormEscola"
+          name="escolarFormEscola"
+          placeholder="Nome da escola anterior"
+        />
+        <input
+          class="dadosEscolar"
+          type="text"
+          id="escolarFormSerie"
+          name="escolarFormSerie"
+          placeholder="Até que série Cursou?"
+        />
+        <label class="dadosEscolar"> Qual turno estudou? </label>
+        <select class="dadosEscolar" id="dadosFormTurno" name="dadosFormTurno">
+          <option value="Matutino" selected>Manhã</option>
+          <option value="Verpertino">Tarde</option>
+          <option value="Noturno">Noite</option>
+        </select>
+      </div>
+      <div id="dadosMatricula">
+        <label for="anoMatricula" style="color: gray">
+          Qual Série está matrículando?</label
+        >
+        <select name="anoMatricula" id="anoMatricula" style="color: gray">
+          <option value="1º Ano">1º Ano</option>
+          <option value="2º Ano">2º Ano</option>
+          <option value="3º Ano">3º Ano</option>
+          <option value="4º Ano">4º Ano</option>
+          <option value="5º Ano">4º Ano</option>
+        </select>
+        <label for="turnoMatricula" style="color: gray">
+          Qual turno matrículando?</label
+        >
+        <select name="turnoMatricula" id="turnoMatricula" style="color: gray">
+          <option value="Vespertino" selected>Tarde</option>
+          <option value="Matutino">Manhã</option>
+        </select>
+        <label for="dataMatricula" style="color: gray"
+          >Data da matrícula:</label
+        >
+        <input
+          style="color: gray"
+          type="date"
+          id="dataMatricula"
+          name="dataMatricula"
+        />
+      </div>
+
+      <div id="informacoesFormMedicas">
+        <h2>Informações Médicas</h2>
+        <label> Tem plano de Saúde? </label>
+        <select
+          class="dadosMedicos"
+          id="dadosFormPlanoSaude"
+          name="dadosFormPlanoSaude"
+        >
+          <option value="Sim" selected>Sim</option>
+          <option value="Nao">Não</option>
+        </select>
+
+        <input
+          class="dadosMedicos"
+          type="number"
+          id="SUSFormMedicos"
+          name="SUSFormMedicos"
+          placeholder="número do cartão SUS"
+        />
+        <input
+          class="dadosMedicos"
+          type="number"
+          id="telefoneFormEmergencia"
+          name="telefoneFormEmergencia"
+          placeholder="Telefone de Emergência"
+        />
+      </div>
+      <div id="historicoAluno">
+        <h2>HISTÓRICO DA CRIANÇA</h2>
+        <label for="problemaSaude">
+          A criança apresenta algum problema de saúde?</label
+        >
+        <select
+          name="problemaSaude"
+          id="problemaSaude"
+          onchange="verificarProblemaSaude(this)"
+        >
+          <option value="Nao" selected>Não</option>
+          <option value="Sim">Sim</option>
+        </select>
+        <script>
+          function verificarProblemaSaude(selectElement) {
+            document
+              .querySelectorAll(".qualProblemaSaude")
+              .forEach(function (campo) {
+                if (selectElement.value === "Nao") {
+                  campo.style.display = "none";
+                } else {
+                  campo.style.display = "block";
+                }
+              });
+          }
+        </script>
+        <input
+          class="qualProblemaSaude"
+          id="qualProblemaSaude"
+          name="qualProblemaSaude"
+          placeholder=" Qual o problema de Saúde?"
+          type="text"
+          \
+        />
+        <label for="medicamentoControlado">
+          Faz uso de algum medicamento controlado?</label
+        >
+        <select
+          name="medicamentoControlado"
+          id="medicamentoControlado"
+          onchange="verificarMedicamentoControlado(this)"
+        >
+          <option value="Nao" selected>Não</option>
+          <option value="Sim">Sim</option>
+        </select>
+        <script>
+          function verificarMedicamentoControlado(selectElement) {
+            document
+              .querySelectorAll(".qualMedicamentoControlado")
+              .forEach(function (campo) {
+                if (selectElement.value === "Nao") {
+                  campo.style.display = "none";
+                } else {
+                  campo.style.display = "block";
+                }
+              });
+          }
+        </script>
+        <input
+          class="qualMedicamentoControlado"
+          id="qualMedicamentoControlado"
+          name="qualMedicamentoControlado"
+          placeholder=" Qual o medicamento?"
+          type="text"
+          \
+        />
+        <label for="tratamento"> Faz algum tipo de tratamento?</label>
+        <select
+          name="tratamento"
+          id="tratamento"
+          onchange="verificarTratamento(this)"
+        >
+          <option value="Nao" selected>Não</option>
+          <option value="Sim">Sim</option>
+        </select>
+        <script>
+          function verificarTratamento(selectElement) {
+            document
+              .querySelectorAll(".qualTratamento")
+              .forEach(function (campo) {
+                if (selectElement.value === "Nao") {
+                  campo.style.display = "none";
+                } else {
+                  campo.style.display = "block";
+                }
+              });
+          }
+        </script>
+        <input
+          class="qualTratamento"
+          id="qualTratamento"
+          name="qualTratamento"
+          placeholder=" Qual o tratamento?"
+          type="text"
+          \
+        />
+        <label for="internado"> Já esteve internado?</label>
+        <select
+          name="internado"
+          id="internado"
+          onchange="verificarInternado(this)"
+        >
+          <option value="Nao" selected>Não</option>
+          <option value="Sim">Sim</option>
+        </select>
+        <script>
+          function verificarInternado(selectElement) {
+            document
+              .querySelectorAll(".qualMotivoInternacao")
+              .forEach(function (campo) {
+                if (selectElement.value === "Nao") {
+                  campo.style.display = "none";
+                } else {
+                  campo.style.display = "block";
+                }
+              });
+          }
+        </script>
+        <input
+          class="qualMotivoInternacao"
+          id="qualMotivoInternacao"
+          name="qualMotivoInternacao"
+          placeholder=" Qual o motivo da Internaçao?"
+          type="text"
+          \
+        />
+        <label for="necessidadeEspecial">Necessidade especial?</label>
+        <select
+          name="necessidadeEspecial"
+          id="necessidadeEspecial"
+          onchange="verificarNecessidadeEspecial(this)"
+        >
+          <option value="Nao" selected>Não</option>
+          <option value="Sim">Sim</option>
+        </select>
+        <script>
+          function verificarNecessidadeEspecial(selectElement) {
+            document
+              .querySelectorAll(".qualNecessidadeEspecial")
+              .forEach(function (campo) {
+                if (selectElement.value === "Nao") {
+                  campo.style.display = "none";
+                } else {
+                  campo.style.display = "block";
+                }
+              });
+          }
+        </script>
+        <input
+          class="qualNecessidadeEspecial"
+          id="qualNecessidadeEspecial"
+          name="qualNecessidadeEspecial"
+          placeholder=" Qual a necessidade especial?"
+          type="text"
+          \
+        />
+        <label for="atendimentoEspecializado"
+          >Atendimento educacional especializado ?</label
+        >
+        <select name="atendimentoEspecializado" id="atendimentoEspecializado">
+          <option value="Nao" selected>Não, Recebe</option>
+          <option value="Sim">Sim, Recebe</option>
+        </select>
+        <label for="atendimentoEspecializadoSalaRecuso"
+          >Recebe atendimento educacional especializado – sala de
+          recursos?</label
+        >
+        <select
+          name="atendimentoEspecializadoSalaRecuso"
+          id="atendimentoEspecializadoSalaRecuso"
+        >
+          <option value="Nao" selected>Não, Recebe</option>
+          <option value="Sim">Sim, Recebe</option>
+        </select>
+        <label for="parto">Como foi o parto?</label>
+        <select name="parto" id="parto">
+          <option value="Normal" selected>Normal</option>
+          <option value="Cesária">Cesária</option>
+          <option value="Fórceps">Fórceps</option>
+          <option value="Outro">Outro</option>
+        </select>
+
+        <label for="gestacao">Como foi a gestação?</label>
+        <select
+          name="gestacao"
+          id="gestacao"
+          onchange="verificarGestacao(this)"
+        >
+          <option value="Normal" selected>Normal</option>
+          <option value="Outro">Outro</option>
+        </select>
+        <script>
+          function verificarGestacao(selectElement) {
+            document
+              .querySelectorAll(".gestacaoOcorrencia")
+              .forEach(function (campo) {
+                if (selectElement.value === "Normal") {
+                  campo.style.display = "none";
+                } else {
+                  campo.style.display = "block";
+                }
+              });
+          }
+        </script>
+        <input
+          class="gestacaoOcorrencia"
+          id="gestacaoOcorrencia"
+          name="gestacaoOcorrencia"
+          placeholder=" O que aconteceu?"
+          type="text"
+          \
+        />
+
+        <label for="acompanhadoCRAS">É acompanhado pelo CRAS?</label>
+        <select
+          name="acompanhadoCRAS"
+          id="acompanhadoCRAS"
+          onchange="verificarAcompanhadoCRAS(this)"
+        >
+          <option value="Sim" selected>Sim</option>
+          <option value="Nao">Não</option>
+        </select>
+        <script>
+          function verificarAcompanhadoCRAS(selectElement) {
+            document
+              .querySelectorAll(".qualAcompanhadoCRAS")
+              .forEach(function (campo) {
+                if (selectElement.value === "Nao") {
+                  campo.style.display = "none";
+                } else {
+                  campo.style.display = "block";
+                }
+              });
+          }
+        </script>
+        <input
+          class="qualAcompanhadoCRAS"
+          id="qualAcompanhadoCRAS"
+          name="qualAcompanhadoCRAS"
+          placeholder=" Qual acompanhamento?"
+          type="text"
+          \
+        />
+        <label for="visitaSocial">Recebe visitas do assistente social?</label>
+        <select name="visitaSocial" id="visitaSocial">
+          <option value="Sim" selected>Sim</option>
+          <option value="Não">Não</option>
+        </select>
+        <label for="visitaTutelar">Recebe visitas do conselho tutelar?</label>
+        <select name="visitaTutelar" id="visitaTutelar">
+          <option value="Sim" selected>Sim</option>
+          <option value="Não">Não</option>
+        </select>
+        <label for="atendimentoDomiciliar"
+          >Necessita de atendimento domiciliar?
+        </label>
+        <select name="atendimentoDomiciliar" id="atendimentoDomiciliar">
+          <option value="Sim" selected>Sim</option>
+          <option value="Não">Não</option>
+        </select>
+        <label for="atendimentoDomiciliar">Utiliza transporte escolar? </label>
+        <select name="transporteEscolar" id="transporteEscolar">
+          <option value="Sim" selected>Sim</option>
+          <option value="Não">Não</option>
+        </select>
+      </div>
+
+      <div id="autorizacoesForm">
+        <h2>Autorizações</h2>
+        <label
+          ><input
+            class="dadosAutorizacao"
+            type="checkbox"
+            name="usoImagem"
+            value="sim"
+          />
+          Autorizo o uso de imagem</label
+        >
+        <label
+          ><input
+            class="dadosAutorizacao"
+            type="checkbox"
+            name="sairSozinho"
+            value="sim"
+          />
+          Autorizo saída sozinho(a)</label
+        >
+        <label
+          ><input
+            class="dadosAutorizacao"
+            type="checkbox"
+            name="atividadeEstracurricular"
+            value="sim"
+          />
+          Autorizo atividades extracurriculares</label
+        >
+      </div>
+      <button type="submit"> Matrícular</button>
+    </form>
+  </body>
+</html>

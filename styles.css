@@ -1,0 +1,256 @@
+/* Estilos Gerais */
+body {
+  background-color: #f5fdfd;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form {
+  width: 100%;
+  max-width: 900px;
+}
+
+/* Tipografia */
+h1 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.75rem;
+  color: #34495e;
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+h3 {
+  font-size: 1.4rem;
+  color: #4169e1;
+  margin: 1rem 0 1.5rem 0;
+  text-align: center;
+}
+
+/* Seções do Formulário - Layout Consistente */
+div {
+  display: flex;
+  flex-direction: column;
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Checkboxes - Estilo Melhorado */
+#autorizacoesForm {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 1.5rem;
+}
+
+#autorizacoesForm label {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+#autorizacoesForm label:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.dadosAutorizacao {
+  margin-right: 12px;
+  width: 20px;
+  height: 20px;
+  accent-color: #1890ff;
+}
+
+/* Inputs - Estilo Consistente */
+input,
+select {
+  width: 100%;
+  height: 45px;
+  padding: 0 15px;
+  margin: 8px 0 15px 0;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  font-size: 1rem;
+  color: #333;
+  transition: all 0.3s;
+  box-sizing: border-box;
+}
+
+/* Labels transformados em Placeholders */
+label:not(#autorizacoesForm label) {
+  position: relative;
+  margin-top: 15px;
+}
+
+label:not(#autorizacoesForm label)::after {
+  content: attr(data-placeholder);
+  position: absolute;
+  top: -10px;
+  left: 15px;
+  background: white;
+  padding: 0 5px;
+  font-size: 0.8rem;
+  color: #666;
+  pointer-events: none;
+  transition: all 0.2s;
+  opacity: 0;
+}
+
+input:not(:placeholder-shown) + label::after,
+select:not(:placeholder-shown) + label::after {
+  opacity: 1;
+}
+
+/*input::placeholder,
+select::placeholder {
+  color: transparent;
+}*/
+
+input:focus::placeholder,
+select:focus::placeholder {
+  color: #aaa;
+}
+
+/* Seções Coloridas (mantidas do CSS anterior) */
+#dadosFormAluno {
+  background-color: #e6f7ff;
+  border-left: 5px solid #1890ff;
+}
+#dadosPais {
+  background-color: #f6ffed;
+  border-left: 5px solid #52c41a;
+}
+#dadosResponsavel {
+  background-color: #f9f0ff;
+  border-left: 5px solid #722ed1;
+}
+#informacoesFormEscolares {
+  background-color: #fffbe6;
+  border-left: 5px solid #faad14;
+}
+#informacoesFormMedicas {
+  background-color: #fff2f0;
+  border-left: 5px solid #ff4d4f;
+}
+#autorizacoesForm {
+  background-color: #f0f5ff;
+  border-left: 5px solid #1d39c4;
+}
+#historicoAluno {
+  background-color: #e6fffb;
+  border-left: 5px solid #13c2c2;
+}
+#estadoCivil {
+  background-color: #fff2e8;
+  border-left: 5px solid #fa8c16;
+}
+#enderecoFomAluno {
+  background-color: #f9f0ff;
+  border-left: 5px solid #722ed1;
+}
+#dadosMatricula {
+  background-color: #e6f7ff;
+  border-left: 5px solid #096dd9;
+}
+
+/* Responsividade */
+@media (max-width: 799px) {
+  body {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
+
+  div {
+    padding: 1.2rem;
+    margin: 1rem 0;
+  }
+
+  input,
+  select {
+    height: 42px;
+    padding: 0 12px;
+  }
+
+  #autorizacoesForm label {
+    padding: 8px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (min-width: 800px) {
+  form {
+    width: 900px;
+  }
+}
+.RG,
+.nacionalidade,
+.UF,
+.naturalidade,
+.nessecidadesEspeciais,
+.alegias,
+.beneficioSocial,
+.situacaoCivil,
+.dadosResponsavel,
+.qualProblemaSaude,
+.qualMedicamentoControlado,
+.qualTratamento,
+.qualNecessidadeEspecial,
+.qualAcompanhadoCRAS,
+.gestacaoOcorrencia {
+  display: none;
+}
+.qualMotivoInternacao {
+  display: none;
+}
+
+
+/* botão*/
+
+
+button[type="submit"] {
+  display: block;
+  margin: 0 auto;
+  background-color: #1890ff; /* Cor de fundo azul */
+  color: #fff;               /* Texto branco */
+  border: none;              /* Remove borda padrão */
+  padding: 12px 24px;        /* Espaçamento interno */
+  font-size: 1.1rem;         /* Tamanho da fonte */
+  border-radius: 6px;        /* Bordas arredondadas */
+  cursor: pointer;           /* Indica que é clicável */
+  transition: background-color 0.3s ease;
+  
+}
+
+button[type="submit"]:hover {
+  background-color: #0d6efd; /* Cor de fundo ao passar o mouse */
+}
