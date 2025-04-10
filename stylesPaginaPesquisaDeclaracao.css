@@ -1,0 +1,81 @@
+.logoTelaPesquisaDeclaracao {
+  width: 200px; /* ajuste conforme desejado */
+  height: auto;
+}
+.localizar_aluno {
+  width: calc(100% + 60px); /* largura total menos a navbar */
+  display: flex;
+  height: 100vh;
+  justify-content: flex-start; /* centraliza horizontalmente */
+  align-items: center; /* centraliza verticalmente */
+  flex-direction: column;
+}
+/* Estilo base para o select */
+.tipoPesquisa {
+  /* Box model */
+  width: 150px;
+  max-width: 250px;
+  padding: 12px 16px;
+  margin: 8px 0;
+
+  /* Estilos visuais */
+  font-family: "Segoe UI", Roboto, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #333;
+  background-color: #fff;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  /* Seta personalizada */
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23333333'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 24px;
+
+  /* Transição suave */
+  transition: all 0.3s ease;
+}
+
+/* Efeito hover */
+.tipoPesquisa:hover {
+  border-color: #999;
+}
+
+/* Efeito quando focado */
+.tipoPesquisa:focus {
+  outline: none;
+  border-color: #6200ee;
+  box-shadow: 0 0 0 3px rgba(98, 0, 238, 0.2);
+}
+
+/* Estilo para opções */
+.tipoPesquisa option {
+  padding: 12px;
+  background: #fff;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Estilo para quando estiver desabilitado */
+.tipoPesquisa:disabled {
+  background-color: #f5f5f5;
+  color: #999;
+  cursor: not-allowed;
+}
+
+/* Estilo para dark mode (opcional) */
+@media (prefers-color-scheme: dark) {
+  .tipoPesquisa {
+    color: #f0f0f0;
+    background-color: #333;
+    border-color: #555;
+  }
+
+  .tipoPesquisa option {
+    background: #333;
+    color: #f0f0f0;
+  }
+}

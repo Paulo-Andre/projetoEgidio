@@ -1,0 +1,160 @@
+/* Importação de Font Awesome e nova fonte (Montserrat) */
+/* (Substituí a fonte Titillium Web por Montserrat para um visual mais moderno) */
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500");
+@import url("stylesPaginaPesquisaDeclaracao.css");
+body {
+  background-color: rgb(208, 241, 207);
+}
+/* Ícones */
+.fa-2x {
+  font-size: 2em;
+}
+.fa {
+  position: relative;
+  display: table-cell;
+  width: 90px;
+  height: 66px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 60px;
+  padding: 0 0 0 10px;
+}
+
+/* Efeito hover para expandir o menu */
+.main-menu:hover,
+nav.main-menu.expanded {
+  width: 280px;
+  overflow: visible;
+}
+
+/* Container principal da sidebar */
+/* MODIFICADO: Alteração da cor de fundo, largura e uso de Flexbox */
+.main-menu {
+  background: #2c3e50; /* UPDATED: Fundo azul-acinzentado */
+  border-right: 1px solid #34495e; /* UPDATED: Borda sutil */
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh; /* Ocupa toda a altura da tela */
+  width: 80px; /* Largura inicial ajustada */
+  overflow: hidden;
+  display: flex; /* UPDATED: Usa Flexbox */
+  flex-direction: column; /* Organiza itens verticalmente */
+  -webkit-transition: width 0.1s linear;
+  transition: width 0.1s linear;
+  -webkit-transform: translateZ(0) scale(1, 1);
+  z-index: 1000;
+}
+
+/* Container dos itens do menu (os itens principais) */
+.main-menu > .menu-items {
+  margin: 7px 0;
+  flex-grow: 1; /* Ocupa o espaço disponível */
+}
+span {
+  padding: 0 0 0 20px;
+}
+/* Itens do menu */
+.main-menu li {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 15px 0; /* UPDATED: Ajusta os espaçamentos para melhor leitura */
+}
+
+/* Links dos itens do menu */
+.main-menu li > a {
+  position: relative;
+  display: table;
+  width: 100%;
+  color: #bdc3c7; /* UPDATED: Texto em cinza claro */
+  font-family: "Montserrat", sans-serif; /* UPDATED: Nova fonte */
+  font-size: 18px; /* UPDATED: Tamanho de fonte equilibrado */
+  text-decoration: none;
+  -webkit-transition: all 0.15s linear;
+  transition: all 0.15s linear;
+}
+
+/* Ícones dentro dos links */
+.main-menu .nav-icon {
+  display: table-cell;
+  width: 60px;
+  height: 36px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 18px;
+}
+
+/* Texto dos links */
+.main-menu .nav-text {
+  display: table-cell;
+  vertical-align: middle;
+  width: auto; /* Permite que o texto use o espaço disponível */
+  font-family: "Montserrat", sans-serif; /* UPDATED: Fonte Montserrat */
+  color: #ecf0f1; /* UPDATED: Texto mais claro para contraste */
+}
+
+/* Estilos de hover e estado ativo para itens do menu */
+.main-menu li:hover > a,
+nav.main-menu li.active > a,
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  color: #fff;
+  background-color: #2980b9; /* UPDATED: Fundo azul vibrante em hover/ativo */
+}
+
+/* Logout (posicionado no final da sidebar via Flexbox) */
+.main-menu > ul.logout {
+  margin-top: auto; /* UPDATED: Empurra o logout para o final */
+  width: 100%;
+}
+.logout > li > a {
+  color: #bdc3c7;
+  background: #2c3e50; /* Mantém a cor de fundo para integração */
+  font-size: 18px;
+  padding: 15px 0;
+}
+.logout > li > a:hover,
+.logout > li > a:focus {
+  color: #fff;
+  background-color: #e74c3c; /* UPDATED: Fundo vermelho em hover para logout */
+}
+
+/* Área de conteúdo geral */
+.area {
+  float: left;
+  background: #ecf0f1; /* UPDATED: Fundo claro para o restante do conteúdo */
+  width: 100%;
+  height: 100%;
+}
+
+/* Fonte Montserrat já importada, mas se necessário pode-se utilizar @font-face personalizado */
+/* Exemplo opcional:
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Montserrat'), url('https://fonts.gstatic.com/s/montserrat/v15/JTUQjIg1_i6t8kCHKm45_dJE3gnD-w.woff2') format('woff2');
+}
+*/
+
+/* Regras gerais para links, nav e listas */
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+nav {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+nav ul,
+nav li {
+  outline: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
