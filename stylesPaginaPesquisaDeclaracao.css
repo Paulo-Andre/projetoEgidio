@@ -2,6 +2,11 @@
   width: 200px; /* ajuste conforme desejado */
   height: auto;
 }
+.Pesquisa{
+  display: flex;
+  flex-direction: row;
+  
+}
 .localizar_aluno {
   width: calc(100% + 60px); /* largura total menos a navbar */
   display: flex;
@@ -13,17 +18,18 @@
 /* Estilo base para o select */
 .tipoPesquisa {
   /* Box model */
-  width: 150px;
-  max-width: 250px;
-  padding: 12px 16px;
-  margin: 8px 0;
+  width: 180px;
+  height: 50px;
+  max-width: 300px;
+  padding: 5px 16px;
+  margin: 8px 8px 8px 8px  ;
 
   /* Estilos visuais */
   font-family: "Segoe UI", Roboto, sans-serif;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 20px;
   color: #333;
-  background-color: #fff;
+  background-color: #f3f0f0;
   border: 2px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -38,17 +44,19 @@
   /* Transição suave */
   transition: all 0.3s ease;
 }
-
+.op_tipoDeclaracao{
+  width: 240px;
+}
 /* Efeito hover */
 .tipoPesquisa:hover {
-  border-color: #999;
+  border-color: #07f81b;
 }
 
 /* Efeito quando focado */
 .tipoPesquisa:focus {
   outline: none;
-  border-color: #6200ee;
-  box-shadow: 0 0 0 3px rgba(98, 0, 238, 0.2);
+  border-color:  #07f81b;
+  
 }
 
 /* Estilo para opções */
@@ -56,6 +64,7 @@
   padding: 12px;
   background: #fff;
   color: #333;
+  font-size: 20px;
   font-weight: 600;
 }
 
@@ -65,17 +74,151 @@
   color: #999;
   cursor: not-allowed;
 }
+/* From Uiverse.io by alexruix */ 
+.localizarAluno{
+  display: flex;
+  line-height: 28px;
+  align-items: center;
+  position: relative;
+  margin-bottom: 80px;
+ 
 
-/* Estilo para dark mode (opcional) */
-@media (prefers-color-scheme: dark) {
-  .tipoPesquisa {
-    color: #f0f0f0;
-    background-color: #333;
-    border-color: #555;
-  }
+ }
+ 
+ .pesquisar {
+  width: 600px;
+  height: 50px;
+  line-height: 28px;
+  padding: 0 1rem;
+  padding-left: 2.5rem;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  outline: none;
+  background-color: #fdfdff;
+  color: #0d0c22;
+  transition: .3s ease;
+  font-weight: 700;
+  font-size: 20px;
 
-  .tipoPesquisa option {
-    background: #333;
-    color: #f0f0f0;
-  }
+ }
+ 
+ .pesquisar::placeholder {
+  color: #9e9ea7;
+ }
+ 
+ .pesquisar:focus, .pesquisar:hover {
+  outline: none;
+  border-color: #07f81b;
+  background-color: #fff;
+  box-shadow: 0 0 0 4px rgba(174, 234, 76, 0.1);
+ }
+ 
+ .icon {
+  position: absolute;
+  left: 5px;
+  fill: #828288;
+  width: 2rem;
+  height: 2rem;
+ }
+ 
+section>.novoAluno,section>.fa,section>.fa-user-plus{
+  width: 40pf;
+  height: auto;
+  color: #3372e7;
+  
+ }
+
+ section> .novoAluno:hover,
+ section > .fa:hover,
+ section> .fa-user-plus:hover {
+ 
+  
+  filter: drop-shadow(0 0 5px #07f81b);
+  outline: none;   ;
+
 }
+ 
+  
+.resultado {
+  display: flex;              /* Deixa os <p> lado a lado */
+  align-items: center;  
+  margin-bottom: 10px;  
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;           /* Arredondamento fica certinho */
+  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: row;
+}
+
+.resultado > p {
+  height: 45px;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  border: none;
+}
+
+.resultado > .idResultado {
+  display: flex;
+  width: 60px;
+  background-color: #e0e0e0;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 700;
+  border-right: 1px solid #ccc;
+}
+
+
+.resultado > .nomesResultado {
+  display: flex;
+  width: 700px; 
+  flex: 1; /* ocupa o espaço restante */
+  padding-left: 15px;
+  font-size: 18px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  background-color: #ffffff;
+}
+.resultad>.visualizarDeclaracao,.resultado>.fa-eye,.resultad>.fa{
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0%;
+  margin: 0;
+  width: 80px;
+  height: 20px;
+  text-decoration: none;
+  
+
+}
+.resultad>.visualizarDeclaracao:hover,.resultado>.fa-eye:hover,.resultad>.fa:hover{
+  color: #07f81b;
+
+}
+.resultado>.editarDados, .resultado>.fa-pencil-square-o{
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 0% 0% 0%;
+  margin: 0;
+  width: 60px;
+  height: 20px;
+  text-decoration: none;  
+
+}
+.resultado>.editarDados:hover, .resultado>.fa-pencil-square-o:hover{
+  color: #07f81b;
+}
+.resultado:hover{
+  border-color: #0784f8; 
+
+}
+ 
+ 
+
+
+
+ 

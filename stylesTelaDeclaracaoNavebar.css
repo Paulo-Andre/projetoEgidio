@@ -31,9 +31,9 @@ nav.main-menu.expanded {
 /* Container principal da sidebar */
 /* MODIFICADO: Alteração da cor de fundo, largura e uso de Flexbox */
 .main-menu {
+  position: fixed;
   background: #2c3e50; /* UPDATED: Fundo azul-acinzentado */
   border-right: 1px solid #34495e; /* UPDATED: Borda sutil */
-  position: absolute;
   top: 0;
   left: 0;
   height: 100vh; /* Ocupa toda a altura da tela */
